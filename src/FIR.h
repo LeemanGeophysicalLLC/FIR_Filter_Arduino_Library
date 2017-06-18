@@ -6,6 +6,7 @@ class FIR {
 public:
   FIR();
   void setGain(T newgain);
+  T getGain();
   void setFilterCoeffs(T *coeffs);
   T processReading(T newval);
 
