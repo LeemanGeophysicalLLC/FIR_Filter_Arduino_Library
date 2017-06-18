@@ -19,12 +19,15 @@ void setup() {
   // Set the coefficients
   fir.setFilterCoeffs(coef);
 
+  // The filter automatically determines the gain
+  Serial.print("Automatically calculated gain: ");
+  Serial.println(fir.getGain());
+
   // Set the gain to 1 to find the actual gain.
   // After running this sketch you'll see the gain
   // value sould be 26916.
+  Serial.println("Setting gain to 1 to show how to manually determine gain");
   long gain = 1;
-
-  // Set the gain
   fir.setGain(gain);
 }
 
