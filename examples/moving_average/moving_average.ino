@@ -18,11 +18,8 @@ void setup() {
   // Set the coefficients
   fir.setFilterCoeffs(coef);
 
-  // The gain should be the number of elements for a moving average.
-  float gain = 8;
-
-  // Set the gain
-  fir.setGain(gain);
+  Serial.print("Gain set: ");
+  Serial.println(fir.getGain());
 }
 
 void loop() {
