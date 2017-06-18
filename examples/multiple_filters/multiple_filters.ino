@@ -22,7 +22,7 @@ float data[51] = { 0.2, -0.01757378,  0.25261   ,  0.50501472,  0.28169386,
        -0.76797161, -1.09233578, -0.76336743, -0.70354745, -0.86712553,
        -0.40092413, -0.57401086, -0.4319664 , -0.07473948, -0.32007654,
         0.0936594};
-        
+
 void setup() {
   Serial.begin(115200); // Start a serial port
 
@@ -33,14 +33,16 @@ void setup() {
 
   // For a moving average we use all ones as coefficients.
   float coef_avg[10] = {1., 1., 1., 1., 1., 1., 1., 1., 1., 1.};
- 
+
   // Set the coefficients
   fir_lp.setFilterCoeffs(coef_lp);
   fir_avg.setFilterCoeffs(coef_avg);
 
   // Set the gain
-  fir_lp.setGain(26916);
-  fir_avg.setGain(10);
+  Serial.print("Low Pass Filter Gain: ");
+  Serial.println(fir_lp.getGain());
+  Serial.print("Moving Average Filter Gain: ");
+  Serial.println(fir_avg.getGain());
 }
 
 void loop() {
@@ -49,7 +51,7 @@ void loop() {
   // to see how the different filters modify the output.
 
   Serial.println("Input, Moving_Avg, Lowpass");
-  
+
   for (int i=0; i < 51; i++) {
     Serial.print(data[i]);
     Serial.print(", ");
@@ -61,4 +63,3 @@ void loop() {
 
   while (true) {}; // Spin forever
 }
-
