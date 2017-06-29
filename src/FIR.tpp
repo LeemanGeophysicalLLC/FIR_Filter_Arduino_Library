@@ -1,9 +1,7 @@
 template <typename T, int ntaps>
 FIR<T, ntaps>::FIR() {
   k = 0;
-  for (int i=0; i<ntaps; i++){
-    values[i] = 0;
-  }
+  memset(values, 0, sizeof(values));
 }
 
 template <typename T, int ntaps>
@@ -18,9 +16,7 @@ T FIR<T, ntaps>::getGain() {
 
 template <typename T, int ntaps>
 void FIR<T, ntaps>::setFilterCoeffs(T *coeffs) {
-  for (int i=0; i<ntaps; i++) {
-    fir_coeffs[i] = coeffs[i];
-  }
+  memcpy(&fir_coeffs, coeffs, sizeof(fir_coeffs));
 
   // Automatically calculate the gain needed by sending unity inputs for at
   // least the legnth of the filter.
