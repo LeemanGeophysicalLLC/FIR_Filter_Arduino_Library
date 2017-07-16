@@ -12,11 +12,16 @@ class templates or FIR filtering.
 This library does not calculate the filter coefficients for you, but the online
 [T-Filter](http://t-filter.engineerjs.com) tool does an excellent job.
 
+## Installation
+Checkout the [Arduino library installation page](https://www.arduino.cc/en/Guide/Libraries) for details on how to install this library.
+
 ## Examples
-* **determining_gain** - Demonstrates how to determine the appropriate gain for
-  the filter.
-* **moving_average** - The FIR filter can be used as an efficient moving average
-  filter.
+* **[determining_gain](examples/determining_gain)** - Demonstrates how to
+  determine the appropriate gain for the filter.
+* **[moving_average](examples/moving_average)** - The FIR filter can be used as
+  an efficient moving average filter.
+* **[multiple_filters](examples/multiple_filters)** - Shows how to construct and
+  use multiples filters in a single sketch.
 
 ## License
 This software is licensed under the [MIT license](LICENSE). If you find the
